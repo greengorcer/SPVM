@@ -252,6 +252,8 @@ const char* const* SPVM_OP_C_ID_NAMES(void) {
     "OARRAY",
     "ALIAS",
     "OF",
+    "TYPE_COMMENT_START",
+    "TYPE_COMMENT_END",
   };
   
   return id_names;

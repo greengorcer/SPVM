@@ -5,6 +5,12 @@ Revision history for SPVM
         * Support cast from class muldim array to callback muldim array
         [NON BACKWORD COMPATIBLE CHANGES]
         * Internally used Native APIs object_type_category_offset become always NULL.
+        * Type comment syntax is changed because A of B->new is very strange.
+          [Before]
+          A of B
+          [After]
+          A<|B|>
+          
 0.9510  2021-04-05
         [CHANGE]
         * Add alias syntax

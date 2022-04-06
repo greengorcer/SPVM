@@ -550,6 +550,12 @@ int SPVM_yylex(SPVM_YYSTYPE* yylvalp, SPVM_COMPILER* compiler) {
           
           return SPECIAL_ASSIGN;
         }
+        else if (*compiler->bufptr == '>') {
+          compiler->bufptr++;
+          SPVM_OP* op = SPVM_TOKE_new_op(compiler, SPVM_OP_C_ID_TYPE_COMMENT_END);
+          yylvalp->opval = op;
+          return TYPE_COMMENT_END;
+        }
         else {
           SPVM_OP* op = SPVM_TOKE_new_op(compiler, SPVM_OP_C_ID_BIT_OR);
           yylvalp->opval = op;
@@ -688,7 +694,13 @@ int SPVM_yylex(SPVM_YYSTYPE* yylvalp, SPVM_COMPILER* compiler) {
             return SHIFT;
           }
         }
-        // <=
+        // <|
+        else if (*compiler->bufptr == '|') {
+          compiler->bufptr++;
+          SPVM_OP* op = SPVM_TOKE_new_op(compiler, SPVM_OP_C_ID_TYPE_COMMENT_START);
+          yylvalp->opval = op;
+          return TYPE_COMMENT_START;
+        }
         else if (*compiler->bufptr == '=') {
           compiler->bufptr++;
 

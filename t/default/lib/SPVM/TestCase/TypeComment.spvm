@@ -2,13 +2,13 @@ class TestCase::TypeComment {
   use List;
   use TestCase::Minimal;
   
-  has minimals : List of TestCase::Minimal;
+  has minimals : List<|TestCase::Minimal|>;
 
-  our $MINIMALS : List of TestCase::Minimal;
+  our $MINIMALS : List<|TestCase::Minimal|>;
   
-  static method pass_throw_minimals : List of TestCase::Minimal ($minimals : List of TestCase::Minimal) {
+  static method pass_throw_minimals : List<|TestCase::Minimal|> ($minimals : List<|TestCase::Minimal|>) {
     
-    my $minimals_local : List of TestCase::Minimal = $minimals;
+    my $minimals_local : List<|TestCase::Minimal|> = $minimals;
     
     return $minimals_local;
   }
