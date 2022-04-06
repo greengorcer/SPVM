@@ -101,21 +101,21 @@ classes
   | class
 
 class
-  : CLASS basic_type class_block END_OF_FILE
+  : CLASS basic_type opt_type_comment class_block END_OF_FILE
     {
-      $$ = SPVM_OP_build_class(compiler, $1, $2, $3, NULL);
+      $$ = SPVM_OP_build_class(compiler, $1, $2, $4, NULL);
     }
-  | CLASS basic_type ':' opt_descriptors class_block END_OF_FILE
+  | CLASS basic_type opt_type_comment ':' opt_descriptors class_block END_OF_FILE
     {
-      $$ = SPVM_OP_build_class(compiler, $1, $2, $5, $4);
+      $$ = SPVM_OP_build_class(compiler, $1, $2, $6, $5);
     }
-  | CLASS basic_type ';' END_OF_FILE
+  | CLASS basic_type opt_type_comment ';' END_OF_FILE
     {
       $$ = SPVM_OP_build_class(compiler, $1, $2, NULL, NULL);
     }
-  | CLASS basic_type ':' opt_descriptors ';' END_OF_FILE
+  | CLASS basic_type opt_type_comment ':' opt_descriptors ';' END_OF_FILE
     {
-      $$ = SPVM_OP_build_class(compiler, $1, $2, NULL, $4);
+      $$ = SPVM_OP_build_class(compiler, $1, $2, NULL, $5);
     }
 
 class_block
