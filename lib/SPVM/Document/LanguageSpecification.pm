@@ -6976,19 +6976,19 @@ Type qualifiers qualify the type.
 
 =head1 Type Comment
 
-The type comment syntax is supported. The type comment can be written after C<of> keyword.
+The type comment syntax is supported.
 
-  TYPE of TYPE
+  TYPE<|TYPE|>
 
 The type comment can be used the type of the L<field decralation|"Field Definition">, the L<class variable definition|"Class Variable Definition">, the L<local variable declaration|"Local Variable Declaration">, and the return value and the types of arguments of the L<method definition|"Method Definition">.
 
-  has points : List of Point;
+  has points : List<|Point|>;
   
-  our $POINTS : List of Point;
+  our $POINTS : List<|Point|>;
   
-  my $points : List of Point;
+  my $points : List<|Point|>;
   
-  static method foo : List of Point ($arg : List of Point) { ... }
+  static method foo : List<|Point|> ($arg : List<|Point|>) { ... }
 
 If the type specified as the type comment is not found, a compilation error occurs.
 
