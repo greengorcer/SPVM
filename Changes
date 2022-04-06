@@ -10,6 +10,7 @@ Revision history for SPVM
           A of B
           [After]
           A<|B|>
+        * Add type comment syntax to method call and class definition
           
 0.9510  2021-04-05
         [CHANGE]

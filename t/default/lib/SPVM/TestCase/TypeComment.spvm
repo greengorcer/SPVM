@@ -1,4 +1,4 @@
-class TestCase::TypeComment {
+class TestCase::TypeComment<|byte|> {
   use List;
   use TestCase::Minimal;
   
@@ -16,7 +16,7 @@ class TestCase::TypeComment {
   static method basic : int () {
     my $minimal = TestCase::Minimal->new;
     $minimal->set_x(1);
-    my $minimals = List->new([$minimal]);
+    my $minimals = List<|TestCase::Minimal|>->new([$minimal]);
     
     my $minimals2 = &pass_throw_minimals($minimals);
     
